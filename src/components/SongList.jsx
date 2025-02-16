@@ -2,9 +2,10 @@
 /* eslint-disable no-unused-vars */
 import React from "react";
 import SongItem from "./SongItem";
+import { useState } from "react";
 
 function SongList({ songsArray }) {
-  const items = 5;
+  const [items, setItem] = useState(5);
   return (
     <div className="song-list">
       {songsArray
@@ -13,7 +14,9 @@ function SongList({ songsArray }) {
           <SongItem {...currentSongObj} index={index} key={index} />
         ))}
 
-      <p className="song-list__see-more">ver mais</p>
+      <p className="song-list__see-more" onClick={() => setItem(items + 5)}>
+        ver mais
+      </p>
     </div>
   );
 }

@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 /* eslint-disable no-unused-vars */
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -8,18 +9,18 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
 
-const Player = () => {
+const Player = ({ duration, randomIdFromArtist, randomIdFromArtist2 }) => {
   return (
     <div className="player">
       <div className="player__controllers">
-        <Link to="/song/1">
+        <Link to={`/song/${randomIdFromArtist}`}>
           <FontAwesomeIcon className="player__icon" icon={faBackwardStep} />
         </Link>
         <FontAwesomeIcon
           className="player__icon player__icon--play"
           icon={faCirclePlay}
         />
-        <Link to="/song/2">
+        <Link to={`/song/${randomIdFromArtist2}`}>
           <FontAwesomeIcon className="player__icon" icon={faForwardStep} />
         </Link>
       </div>
@@ -28,7 +29,7 @@ const Player = () => {
         <div className="player__bar">
           <div className="player__bar-progress"></div>
         </div>
-        <p>20:00</p>
+        <p>{duration}</p>
       </div>
     </div>
   );

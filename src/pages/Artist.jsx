@@ -15,6 +15,7 @@ function Artist() {
   const songsArrayFromArtist = songsArray.filter(
     (currObj, index) => currObj.artist === artistObj.name
   );
+
   const randonIndex = Math.floor(
     Math.random() * songsArrayFromArtist.length - 1
   );
