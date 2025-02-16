@@ -1,16 +1,19 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable no-unused-vars */
 import React from "react";
+import { Link } from "react-router-dom"
 
 import SingleItem from "./SingleItem";
 const ItemList = ({ title, items, itemsArray, path, idPath }) => {
+  console.log(path);
+  
   return (
     <div className="item-list">
       <div className="item-list__header">
         <h2>{title} populares</h2>
-        <a className="item-list__link" href={path}>
+        <Link className="item-list__link" to={path}>
           Mostrar tudo
-        </a>
+        </Link>
       </div>
       <div className="item-list__container">
         {itemsArray
