@@ -1,33 +1,25 @@
+/* eslint-disable react/prop-types */
+/* eslint-disable no-unused-vars */
 import React from "react";
+
 import SingleItem from "./SingleItem";
-import { Link } from "react-router-dom";
-
-const ItemList = ({ title, items, itemsArray, path, idPath }) => {
-  // console.log(items);
-
+const ItemList = ({ title, items }) => {
+ 
   return (
     <div className="item-list">
       <div className="item-list__header">
         <h2>{title} populares</h2>
-        <Link to={path} className="item-list__link">
+        <a className="item-list__link" href="/">
           Mostrar tudo
-        </Link>
+        </a>
       </div>
-
       <div className="item-list__container">
-        {itemsArray
-          .filter((currentValue, index) => index < items)
-          .map((currObj, index) => (
-            <SingleItem
-              // id={currObj.id}
-              // name={currObj.name}
-              // image={currObj.image}
-              // banner={currObj.banner}
-              idPath={idPath}
-              {...currObj}
-              key={`${title}-${index}`}
-            />
+        {Array(items)
+          .fill()
+          .map((value, index) => (
+            <SingleItem  key={title + index}/>
           ))}
+   
       </div>
     </div>
   );
